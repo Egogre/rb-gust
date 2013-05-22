@@ -1,10 +1,6 @@
 
 ## Development Dependencies
-gemspec = File.expand_path('gust.gemspec', Dir.pwd)
-Gem::Specification.load(gemspec).dependencies.each do |dep|
-  #NOTE This doesn't require specified versions
-  require dep.name
-end
+require 'pry'
 
 ## Load Gust
 require 'gust'
