@@ -110,7 +110,7 @@ module Gust
   _wb.worksheets.each do |_ws|
     puts 'starting worksheet loop'
     @_ws = _ws
-    parser_initialize
+    arser_initialize
     determine_object_structure
     @titles = []
     define_object_titles
