@@ -66,7 +66,6 @@ module Gust
 
     def collect_objects
       @_ws.each(@object_start_row_index) do |object_row|
-      #@_ws.each(7) do |object_row|
         @object_regions.each_with_index do |r,i|
           object = object_row[r[0]..r[1]]
           @objects[i] << object
@@ -103,7 +102,7 @@ module Gust
     end
 
     def script
-      _wb = Spreadsheet.open(Gust.workbook_filepath)
+      _wb = ::Spreadsheet.open(Gust.workbook_filepath)
 
       _wb.worksheets.each do |_ws|
         @_ws = _ws
@@ -119,10 +118,6 @@ module Gust
         build_object_groups
       end
 
-      ### OUTPUT
-
-      #puts "OBJECTS\n#{@objects.inspect}"
-      #puts "OBJECT GROUPS\n#{@object_groups.inspect}"
       @object_groups
     end
   end
