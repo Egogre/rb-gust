@@ -3,7 +3,7 @@ module Gust::Spreadsheet
     attr_reader :worksheet
     attr_reader :title_row_index, :header_row_index, :object_row_index
     attr_reader :object_regions
-    attr_reader :titles, :headers
+    attr_reader :titles, :headers, :objects
 
     def initialize worksheet
       @worksheet = worksheet
@@ -15,6 +15,7 @@ module Gust::Spreadsheet
       @headers = []
       define_object_titles(title_row)
       define_headers(header_row)
+      define_objects(object_rows)
     end
 
     def title_row
@@ -43,6 +44,17 @@ module Gust::Spreadsheet
       object_regions.each do |r|
         object_headers = header_row[r[0]..r[1]]
         @headers << object_headers
+      end
+    end
+
+    def define_objects object_rows
+      @objects = []
+      object_rows.each do |object_row|
+        object_regions.each_with_index do |r,i|
+          @objects << []
+          object = object_row[r[0]..r[1]]
+          @objects[i] << object
+        end
       end
     end
 

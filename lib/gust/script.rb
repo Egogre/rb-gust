@@ -5,15 +5,6 @@ module Gust
 
     ### SCRIPT
 
-    def collect_objects
-      @ws.object_rows.each do |object_row|
-        @object_regions.each_with_index do |r,i|
-          object = object_row[r[0]..r[1]]
-          @objects[i] << object
-        end
-      end
-    end
-
     require 'active_support/inflector'
     def build_object_groups
       @object_groups = {}
@@ -50,9 +41,7 @@ module Gust
         @object_regions = Gust::Spreadsheet::Structure.new(@ws.header_row).object_regions
         @titles = @ws.titles
         @headers = @ws.headers
-        @objects = []
-        @object_regions.length.times { @objects << [] }
-        collect_objects
+        @objects = @ws.objects
         build_object_groups
       end
 
