@@ -1,9 +1,6 @@
-
 module Gust
   class Script
     attr_reader :objects, :object_groups
-
-    ### SCRIPT
 
     require 'active_support/inflector'
     def build_object_groups
@@ -19,16 +16,16 @@ module Gust
       headers = @headers[index]
       object_data = @objects[index]
       group = []
-      object_data.each do |object|
-        group << hashify_object(headers, object)
+      object_data.each do |object_attributes|
+        group << hashify_object(headers, object_attributes)
       end
       group
     end
 
-    def hashify_object(headers, object)
+    def hashify_object(headers, object_attributes)
       hash = {}
       headers.each_with_index do |header, i|
-        hash[header.to_sym] = object[i]
+        hash[header.to_sym] = object_attributes[i]
       end
       hash
     end
@@ -38,7 +35,6 @@ module Gust
 
       _wb.worksheets.each do |_ws|
         @ws = Gust::Spreadsheet::Worksheet.new(_ws)
-        @object_regions = Gust::Spreadsheet::Structure.new(@ws.header_row).object_regions
         @titles = @ws.titles
         @headers = @ws.headers
         @objects = @ws.objects
