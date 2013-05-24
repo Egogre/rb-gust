@@ -1,4 +1,5 @@
+require 'gust/spreadsheet/worksheet'
+
 module Gust::Spreadsheet
 end
 
-require 'gust/spreadsheet/worksheet'

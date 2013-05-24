@@ -2,36 +2,6 @@
 module Gust
   class Script
     attr_reader :objects, :object_groups
-    def initialize
-      ### STRUCTURE
-      @object_regions = []
-      @inside = false
-    end
-
-    def determine_object_structure
-      start_index = 0
-      @ws.header_row.each_with_index do |cell, i|
-        if not(inside) && present?(cell)
-          start_index = i
-          @inside = true
-        elsif inside && last_object_heading?(i)
-          @object_regions << [start_index, i]
-          @inside = false
-        end
-      end
-    end
-
-    def inside
-      @inside
-    end
-
-    def present? cell
-      cell && cell.length > 0
-    end
-
-    def last_object_heading? i
-      present?(@ws.header_row[i]) && not(present?(@ws.header_row[i+1]))
-    end
 
     ### SCRIPT
 
@@ -90,7 +60,7 @@ module Gust
 
       _wb.worksheets.each do |_ws|
         @ws = Gust::Spreadsheet::Worksheet.new(_ws)
-        determine_object_structure
+        @object_regions = Gust::Structure.new(@ws.header_row).object_regions
         @titles = []
         define_object_titles
         @headers = []

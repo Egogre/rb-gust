@@ -1,7 +1,10 @@
-require 'gust/version'
+
 require 'spreadsheet'
+
+require 'gust/version'
 require 'gust/script'
 require 'gust/spreadsheet'
+require 'gust/structure'
 
 module Gust
 
