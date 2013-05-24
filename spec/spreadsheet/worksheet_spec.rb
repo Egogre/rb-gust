@@ -12,12 +12,16 @@ describe Gust::Spreadsheet::Worksheet do
     @ws.worksheet.should be_a(::Spreadsheet::Excel::Worksheet)
   end
 
-  it "knows where the title row is" do
-    @ws.title_row_index.should be(5)
+  it "knows about the title row" do
+    @ws.title_row.should include('Vehicles')
   end
 
-  it "knows the spreadsheet titles" do
-    pending
-    @ws.titles.should include('Vehicles')
+  it "knows about the header row" do
+    @ws.header_row.should include('juicable?')
   end
+
+  it "knows about the object rows" do
+    @ws.object_rows.should have(4).object_rows
+  end
+
 end

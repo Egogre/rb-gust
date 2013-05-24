@@ -10,7 +10,7 @@ module Gust
 
     def determine_object_structure
       start_index = 0
-      header_row.each_with_index do |cell, i|
+      @ws.header_row.each_with_index do |cell, i|
         if not(inside) && present?(cell)
           start_index = i
           @inside = true
@@ -30,42 +30,26 @@ module Gust
     end
 
     def last_object_heading? i
-      present?(header_row[i]) && not(present?(header_row[i+1]))
-    end
-
-    ### WORKSHEET PARSER
-
-    def parser_initialize
-      @title_row_index = @_ws.dimensions.first
-      @header_row_index = @title_row_index + 1
-      @object_start_row_index = @title_row_index + 2
-    end
-
-    def title_row
-      @_ws.row(@title_row_index)
-    end
-
-    def header_row
-      @_ws.row(@header_row_index)
+      present?(@ws.header_row[i]) && not(present?(@ws.header_row[i+1]))
     end
 
     ### SCRIPT
 
     def define_object_titles
       @object_regions.each do |r|
-        @titles << title_row[r.first]
+        @titles << @ws.title_row[r.first]
       end
     end
 
     def define_headers
       @object_regions.each do |r|
-        titles = header_row[r[0]..r[1]]
+        titles = @ws.header_row[r[0]..r[1]]
         @headers << titles
       end
     end
 
     def collect_objects
-      @_ws.each(@object_start_row_index) do |object_row|
+      @ws.object_rows.each do |object_row|
         @object_regions.each_with_index do |r,i|
           object = object_row[r[0]..r[1]]
           @objects[i] << object
@@ -78,7 +62,7 @@ module Gust
       @object_groups = {}
       @titles.each_with_index do |title,i|
         group_name = ActiveSupport::Inflector.tableize(title).to_sym
-        @object_groups[group_name] = group_objects i
+        @object_groups[group_name] = group_objects(i)
       end
     end
 
@@ -105,8 +89,7 @@ module Gust
       _wb = ::Spreadsheet.open(Gust.workbook_filepath)
 
       _wb.worksheets.each do |_ws|
-        @_ws = _ws
-        parser_initialize
+        @ws = Gust::Spreadsheet::Worksheet.new(_ws)
         determine_object_structure
         @titles = []
         define_object_titles
