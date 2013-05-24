@@ -5,19 +5,6 @@ module Gust
 
     ### SCRIPT
 
-    def define_object_titles
-      @object_regions.each do |r|
-        @titles << @ws.title_row[r.first]
-      end
-    end
-
-    def define_headers
-      @object_regions.each do |r|
-        titles = @ws.header_row[r[0]..r[1]]
-        @headers << titles
-      end
-    end
-
     def collect_objects
       @ws.object_rows.each do |object_row|
         @object_regions.each_with_index do |r,i|
@@ -60,11 +47,9 @@ module Gust
 
       _wb.worksheets.each do |_ws|
         @ws = Gust::Spreadsheet::Worksheet.new(_ws)
-        @object_regions = Gust::Structure.new(@ws.header_row).object_regions
-        @titles = []
-        define_object_titles
-        @headers = []
-        define_headers
+        @object_regions = Gust::Spreadsheet::Structure.new(@ws.header_row).object_regions
+        @titles = @ws.titles
+        @headers = @ws.headers
         @objects = []
         @object_regions.length.times { @objects << [] }
         collect_objects

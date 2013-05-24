@@ -1,4 +1,4 @@
-module Gust
+module Gust::Spreadsheet
   class Structure
     attr_reader :header_row, :object_regions, :inside
 

@@ -2,12 +2,19 @@ module Gust::Spreadsheet
   class Worksheet
     attr_reader :worksheet
     attr_reader :title_row_index, :header_row_index, :object_row_index
+    attr_reader :object_regions
+    attr_reader :titles, :headers
 
     def initialize worksheet
       @worksheet = worksheet
       @title_row_index = @worksheet.dimensions.first
       @header_row_index = @title_row_index + 1
       @object_row_index = @title_row_index + 2
+      @object_regions = Gust::Spreadsheet::Structure.new(header_row).object_regions
+      @titles = []
+      @headers = []
+      define_object_titles(title_row)
+      define_headers(header_row)
     end
 
     def title_row
@@ -26,7 +33,18 @@ module Gust::Spreadsheet
       rows
     end
 
-    private
+    def define_object_titles title_row
+      object_regions.each do |r|
+        @titles << title_row[r.first]
+      end
+    end
+
+    def define_headers header_row
+      object_regions.each do |r|
+        object_headers = header_row[r[0]..r[1]]
+        @headers << object_headers
+      end
+    end
 
   end
 end

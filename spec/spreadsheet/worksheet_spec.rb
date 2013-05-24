@@ -24,4 +24,14 @@ describe Gust::Spreadsheet::Worksheet do
     @ws.object_rows.should have(4).object_rows
   end
 
+  it "knows its own titles" do
+    titles = %w(Vehicles Fruits Cities)
+    @ws.titles.should eq(titles)
+  end
+
+  it "knows the object headers" do
+    headers = [%w(name wheels color),%w(id type juicable?),%w(name state).push('favorite fruit id')]
+    @ws.headers.should eq(headers)
+  end
+
 end
