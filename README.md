@@ -2,7 +2,9 @@
 
 Gust allows you to load many objects from an excel spreadsheet (.xls only) into Ruby objects.
 
+```ruby
 objects = Gust.load('/path/to/spreadsheet.xls')
+```
 
 ... and you're off!
 
@@ -22,7 +24,7 @@ Or install it yourself as:
 
 ## Usage
 
-Format a Spreadsheet (see the example spreadsheet [here](spec/workbooks/basic_objects.xls):
+Format a Spreadsheet (see the example spreadsheet [here](spec/workbooks/basic_objects.xls)):
 
 + first row with content as the object titles.
 + second row has column headers
@@ -30,6 +32,7 @@ Format a Spreadsheet (see the example spreadsheet [here](spec/workbooks/basic_ob
 
 To load the objects into Ruby, use Gust.load(). An RSpec example:
 
+```ruby
 objects = Gust.load('/gust\_gem\_path/spec/worksheets/basic\_objects.xls')
 objects[:vehicles].should eq(
   [
@@ -38,8 +41,11 @@ objects[:vehicles].should eq(
     {:name=>"moving truck", :wheels=>6.0, :color=>"white"},
   ]
 )
+```
 
 ## Contributing
+
+Check out the [feature forecast](FORECAST.md) for desired features.
 
 1. Fork it
 2. Create your feature branch (`git checkout -b my-new-feature`)
