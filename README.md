@@ -30,7 +30,7 @@ Format a Spreadsheet (see the example spreadsheet [here](spec/workbooks/basic_ob
 + second row has column headers
 + third row begins the object data values
 
-To load the objects into Ruby, use Gust.load(). An RSpec example:
+To load the objects into Ruby, use `Gust.load()`. An RSpec example:
 
 ```ruby
 objects = Gust.load('/gust_gem_path/spec/worksheets/basic_objects.xls')
