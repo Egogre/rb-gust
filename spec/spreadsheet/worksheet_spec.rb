@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Gust::Spreadsheet::Worksheet do
   before :each do
-    path = "/Users/nathan/gems/gust2/spec/workbooks/basic_objects.xls"
+    path = File.join(File.expand_path('..', File.dirname(__FILE__)), 'workbooks','basic_objects.xls')
     _s = Spreadsheet.open(path)
     _ws = _s.worksheet('basic_objects')
     @ws = Gust::Spreadsheet::Worksheet.new(_ws)
