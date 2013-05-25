@@ -7,7 +7,7 @@ Gem::Specification.new do |gem|
   gem.name          = "rb-gust"
   gem.description   = 'A tool for loading spreadsheet data into ruby objects'
   gem.summary       = 'Load data from a spreadsheets directly into Ruby objects for further manipulation. Useful while bulk uploading data for applications, analytics, or scripting.'
-  gem.homepage      = 'http://www.github.com/jfeaver/rb-gust/'
+  gem.homepage      = 'http://www.github.com/6kites/rb-gust/'
 
   gem.version       = Gust::VERSION
   gem.license       = 'MIT'
