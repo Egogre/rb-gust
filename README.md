@@ -1,12 +1,16 @@
 # Gust
 
-TODO: Write a gem description
+Gust allows you to load many objects from an excel spreadsheet (.xls only) into Ruby objects.
+
+objects = Gust.load('/path/to/spreadsheet.xls')
+
+... and you're off!
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
-    gem 'gust'
+    gem 'rb-gust'
 
 And then execute:
 
@@ -14,11 +18,26 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install gust
+    $ gem install rb-gust
 
 ## Usage
 
-TODO: Write usage instructions here
+Format a Spreadsheet (see the example spreadsheet [here](spec/worksheets/basic_objects.xls):
+
++ first row with content as the object titles.
++ second row has column headers
++ third row begins the object data values
+
+To load the objects into Ruby, use Gust.load(). An RSpec example:
+
+objects = Gust.load('/gust\_gem\_path/spec/worksheets/basic\_objects.xls')
+objects[:vehicles].should eq(
+  [
+    {:name=>"sedan", :wheels=>4.0, :color=>"blue"},
+    {:name=>"sports car", :wheels=>4.0, :color=>"red"},
+    {:name=>"moving truck", :wheels=>6.0, :color=>"white"},
+  ]
+)
 
 ## Contributing
 
