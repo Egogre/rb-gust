@@ -33,7 +33,7 @@ Format a Spreadsheet (see the example spreadsheet [here](spec/workbooks/basic_ob
 To load the objects into Ruby, use Gust.load(). An RSpec example:
 
 ```ruby
-objects = Gust.load('/gust\_gem\_path/spec/worksheets/basic\_objects.xls')
+objects = Gust.load('/gust_gem_path/spec/worksheets/basic_objects.xls')
 objects[:vehicles].should eq(
   [
     {:name=>"sedan", :wheels=>4.0, :color=>"blue"},
