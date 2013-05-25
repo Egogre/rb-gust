@@ -24,11 +24,11 @@ Or install it yourself as:
 
 ## Usage
 
-An example spreadsheet:
+[An example spreadsheet](spec/workbooks/basic_objects.xls):
 
 ![A Gust Formatted Spreadsheet](doc/basic_objects.png "A Gust Formatted Spreadsheet")
 
-Format a Spreadsheet (see the image above or the example spreadsheet [here](spec/workbooks/basic_objects.xls)):
+### Gust requires that you format your spreadsheet correctly:
 
 + first row with content as the object titles.
 + second row has column headers
