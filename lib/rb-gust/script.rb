@@ -14,6 +14,7 @@ module Gust
     def group_objects headers, object_data
       group = []
       object_data.each do |object_attributes|
+        next if object_attributes.compact.empty?
         group << hashify_object(headers, object_attributes)
       end
       group
