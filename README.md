@@ -22,7 +22,7 @@ Or install it yourself as:
 
 ## Usage
 
-Format a Spreadsheet (see the example spreadsheet [here](spec/worksheets/basic_objects.xls):
+Format a Spreadsheet (see the example spreadsheet [here](spec/workbooks/basic_objects.xls):
 
 + first row with content as the object titles.
 + second row has column headers
