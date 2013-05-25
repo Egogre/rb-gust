@@ -4,10 +4,10 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'gust/version'
 
 Gem::Specification.new do |gem|
-  gem.name          = "gust"
-  gem.description   = 'A spreadsheet to ruby data importing system'
-  gem.summary       = 'Load data from xls formatted spreadsheets into Ruby objects. Useful while bulk uploading data for applications, analytics, or scripting.'
-  gem.homepage      = 'http://www.github.com/jfeaver/gust/'
+  gem.name          = "rb-gust"
+  gem.description   = 'A tool for loading spreadsheet data into ruby objects'
+  gem.summary       = 'Load data from a spreadsheets directly into Ruby objects for further manipulation. Useful while bulk uploading data for applications, analytics, or scripting.'
+  gem.homepage      = 'http://www.github.com/jfeaver/rb-gust/'
 
   gem.version       = Gust::VERSION
   gem.license       = 'MIT'

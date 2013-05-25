@@ -1,9 +1,9 @@
 
 require 'spreadsheet'
 
-require 'gust/version'
-require 'gust/script'
-require 'gust/spreadsheet'
+require 'rb-gust/version'
+require 'rb-gust/script'
+require 'rb-gust/spreadsheet'
 
 module Gust
 

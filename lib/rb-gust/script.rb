@@ -7,14 +7,11 @@ module Gust
       @object_groups = {}
       @titles.each_with_index do |title,i|
         group_name = ActiveSupport::Inflector.tableize(title).to_sym
-        @object_groups[group_name] = group_objects(i)
+        @object_groups[group_name] = group_objects(@headers[i], @objects[i])
       end
     end
 
-    def group_objects object_group_index
-      index = object_group_index
-      headers = @headers[index]
-      object_data = @objects[index]
+    def group_objects headers, object_data
       group = []
       object_data.each do |object_attributes|
         group << hashify_object(headers, object_attributes)

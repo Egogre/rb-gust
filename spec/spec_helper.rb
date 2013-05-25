@@ -3,7 +3,7 @@
 require 'pry'
 
 ## Load Gust
-require 'gust'
+require 'rb-gust'
 
 ## Sample Application
 #APP_ROOT = File.join(File.dirname(__FILE__), 'app')
