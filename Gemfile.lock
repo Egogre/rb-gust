@@ -1,9 +1,9 @@
 PATH
   remote: .
   specs:
-    rb-gust (0.0.1)
-      active_support
-      spreadsheet
+    rb-gust (0.0.2)
+      active_support (>= 2.0)
+      spreadsheet (>= 0.7)
 
 GEM
   remote: https://rubygems.org/
@@ -37,4 +37,4 @@ PLATFORMS
 DEPENDENCIES
   pry
   rb-gust!
-  rspec
+  rspec (>= 2.0)
