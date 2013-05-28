@@ -2,7 +2,6 @@
 require 'spreadsheet'
 
 require 'rb-gust/version'
-require 'rb-gust/script'
 require 'rb-gust/spreadsheet'
 
 module Gust
@@ -13,7 +12,7 @@ module Gust
 
   def self.load workbook_filepath
     @@workbook_filepath = workbook_filepath
-    Script.new.script
+    Spreadsheet::Loader.load(self.workbook_filepath)
   end
 
 end

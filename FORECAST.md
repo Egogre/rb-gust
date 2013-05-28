@@ -4,9 +4,8 @@ Gust Forecast
 The Gust Forecast is a list of feature ideas that would be nice to have.  Ideally, this list is prioritized. (Maybe this list should be moved to Pivotal Tracker)
 
 ### Allow for more than one Spreadsheet
-Currently the script overwrites all but the last spreadsheet
 
-### Refactor the Script class to be OO
+Currently the script overwrites all but the last spreadsheet
 
 ### Object groups accessible by title name
 
