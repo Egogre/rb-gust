@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    rb-gust (0.0.2)
+    rb-gust (0.0.3)
       active_support (>= 2.0)
       spreadsheet (>= 0.7)
 
