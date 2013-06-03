@@ -38,3 +38,5 @@ end
 ### Multiple Tables Vertically stacked in One Spreadsheet
 
 ### Remove Active Support Dependency (if it's easy)
+
+### Spreadsheets (files) are editable
