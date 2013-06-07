@@ -34,7 +34,7 @@ module Gust::Spreadsheet
       hash
     end
 
-    def script
+    def parse_worksheets
       _workbook.worksheets.each do |_ws|
         @ws = Gust::Spreadsheet::Worksheet.new(_ws)
         @titles = @ws.titles
@@ -48,7 +48,7 @@ module Gust::Spreadsheet
 
     def self.load workbook_filepath
       loader = self.new(workbook_filepath)
-      loader.script
+      loader.parse_worksheets
     end
 
   private

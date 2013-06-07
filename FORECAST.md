@@ -3,15 +3,6 @@ Gust Forecast
 
 The Gust Forecast is a list of feature ideas that would be nice to have.  Ideally, this list is prioritized. (Maybe this list should be moved to Pivotal Tracker)
 
-### Object groups accessible by title name
-
-For Example:
-
-+ basic_objects.vehicles
-+ basic_objects.fruits
-+ basic_objects.cities
-+ basic_object.vehicles.first.color
-
 ### Title Row, Header Row, and Object Row are configurable
 
 ```ruby

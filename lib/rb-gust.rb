@@ -3,6 +3,8 @@ require 'spreadsheet'
 
 require 'rb-gust/version'
 require 'rb-gust/spreadsheet'
+require 'rb-gust/loader'
+require 'rb-gust/database'
 
 module Gust
 
@@ -12,7 +14,7 @@ module Gust
 
   def self.load workbook_filepath
     @@workbook_filepath = workbook_filepath
-    Spreadsheet::Loader.load(self.workbook_filepath)
+    Gust::Loader.load(workbook_filepath)
   end
 
 end
