@@ -5,13 +5,9 @@ describe Gust do
     @path = File.join(File.dirname(__FILE__), 'workbooks','basic_objects.xls')
   end
 
-  it "is already loaded" do
-    require('rb-gust').should be_false
-  end
-
   it "should have objects" do
     o = Gust.load(@path)
-    o.should be_a(Hash)
+    o.length.should be >=(0)
   end
 
   it "should not contain any empty objects" do
