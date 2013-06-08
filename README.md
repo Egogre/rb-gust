@@ -38,7 +38,7 @@ To load the objects into Ruby, use `Gust.load()`. An RSpec example:
 
 ```ruby
 objects = Gust.load('/gust_gem_path/spec/worksheets/basic_objects.xls')
-objects[:vehicles].should eq(
+objects.vehicles.should eq(
   [
     {:name=>"sedan", :wheels=>4.0, :color=>"blue"},
     {:name=>"sports car", :wheels=>4.0, :color=>"red"},

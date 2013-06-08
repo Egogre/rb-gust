@@ -10,6 +10,16 @@ describe Gust do
   end
   attr_accessor :objects
 
+  it "should have vehicles" do
+    objects.vehicles.should eq(
+      [
+        {:name=>"sedan", :wheels=>4.0, :color=>"blue"},
+        {:name=>"sports car", :wheels=>4.0, :color=>"red"},
+        {:name=>"moving truck", :wheels=>6.0, :color=>"white"},
+      ]
+    )
+  end
+
   it "should have objects" do
     objects.length.should be >=(0)
   end
@@ -23,7 +33,7 @@ describe Gust do
   end
 
   it "should have object group accessors" do
-    objects.vehicles.should_not be_nil
+    objects.races.should_not be_nil
     objects.should respond_to(:vehicles, :fruits, :cities, :races)
   end
 end
