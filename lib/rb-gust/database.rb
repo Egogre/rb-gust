@@ -6,7 +6,7 @@ module Gust
 
     #TODO Delegation gem?
 
-    def respond_to? m
+    def respond_to_missing? m, include_private
       (@hash.respond_to?(m) || @hash.has_key?(m)) ? true : super
     end
 
