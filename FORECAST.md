@@ -3,17 +3,11 @@ Gust Forecast
 
 The Gust Forecast is a list of feature ideas that would be nice to have.  Ideally, this list is prioritized. (Maybe this list should be moved to Pivotal Tracker)
 
-### Objects have attribute accessors
+### Update README
+### Fix Active Support delegation
+### Extract Gust loading into spec helper
 
-```ruby
-boulder = objects.cities.first
-#=> {:name=>"Boulder", :state=>"CO", :"favorite fruit id"=>3.0}
-boulder.name.should == "Boulder"
-boulder.state.should == "CO"
-boulder.favorite_fruit_id.should == 3
-```
-
-### Objects are associable via sql-like foreign key attributes
+### Records are associable via sql-like foreign key attributes
 
 Association headings should take the form:
 
@@ -42,7 +36,7 @@ end
 
 ### Rails Plugin
 
-### Builds/Saves objects into Rails Models
+### Builds/Saves records into Rails Models
 
 ### Compatibility with more filetypes (using roo)
 
