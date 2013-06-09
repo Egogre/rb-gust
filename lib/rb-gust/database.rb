@@ -4,7 +4,12 @@ module Gust
       @hash = hash
     end
 
-    #TODO Delegation gem?
+    def tables
+      @hash.keys
+    end
+
+    #ActiveSupport delegation not working...
+    #delegate :[], :[]=, :keys, :values, :to => :@hash
 
     def respond_to_missing? m, include_private
       (@hash.respond_to?(m) || @hash.has_key?(m)) ? true : super
