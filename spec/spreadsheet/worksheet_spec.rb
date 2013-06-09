@@ -30,8 +30,12 @@ describe Gust::Spreadsheet::Worksheet do
   end
 
   it "knows the object headers" do
-    headers = [%w(name wheels color),%w(id type juicable?),%w(name state).push('favorite fruit id')]
+    headers = [%w(name wheels color),%w(id type juicable?),%w(name state favorite_fruit_id)]
     @ws.headers.should eq(headers)
+  end
+
+  it "transforms spaces in header names into underscores" do
+    @ws.headers[2].should include('favorite_fruit_id')
   end
 
 end

@@ -1,12 +1,18 @@
 module Gust
-  class Database
+  class Record
+    attr_accessor :hash
+
     def initialize hash
       @hash = hash
-      convert_object_hashes_to_records
     end
 
-    def tables
-      @hash.keys
+    def to_hash
+      hash
+    end
+
+    def == other
+      return true if hash == other
+      super
     end
 
     #ActiveSupport delegation not working...
@@ -22,16 +28,6 @@ module Gust
       else
         if @hash.has_key?(m)
           @hash[m]
-        end
-      end
-    end
-
-  private
-
-    def convert_object_hashes_to_records
-      @hash.each do |table_name, objects|
-        objects.each_with_index do |object_hash, i|
-          @hash[table_name][i] = Gust::Record.new(object_hash)
         end
       end
     end

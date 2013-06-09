@@ -5,6 +5,7 @@ require 'rb-gust/version'
 require 'rb-gust/spreadsheet'
 require 'rb-gust/loader'
 require 'rb-gust/database'
+require 'rb-gust/record'
 
 module Gust
 

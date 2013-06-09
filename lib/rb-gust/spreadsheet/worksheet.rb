@@ -43,6 +43,7 @@ module Gust::Spreadsheet
     def define_headers header_row
       object_regions.each do |r|
         object_headers = header_row[r[0]..r[1]]
+        header_transforms!(object_headers)
         @headers << object_headers
       end
     end
@@ -57,6 +58,16 @@ module Gust::Spreadsheet
         end
       end
     end
+
+  private
+
+  def header_transforms! headers
+    headers.each do |h|
+      if h.include?(' ')
+        h.gsub!(/ /, '_')
+      end
+    end
+  end
 
   end
 end
